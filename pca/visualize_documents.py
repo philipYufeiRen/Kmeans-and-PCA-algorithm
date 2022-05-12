@@ -1,9 +1,4 @@
-"""
-CSCC11 - Introduction to Machine Learning, Winter 2022, Assignment 4
-B. Chan, S. Wei, D. Fleet
 
-This file visualizes the document dataset by reducing the dimensionality with PCA
-"""
 
 import _pickle as pickle
 import matplotlib

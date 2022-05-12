@@ -1,9 +1,4 @@
-"""
-CSCC11 - Introduction to Machine Learning, Winter 2022, Assignment 4
-B. Chan, S. Wei, D. Fleet
 
-This is a test script for clustering methods.
-"""
 
 import _pickle as pickle
 import matplotlib
@@ -12,8 +7,6 @@ import numpy as np
 import os
 
 from functools import partial
-
-from gmm import GMM
 from kmeans import KMeans
 
 def test_all(base_path, tests, test_method, visualize=False):
@@ -36,12 +29,6 @@ def run_test(data_path, test_method, visualize=False):
         test_kmeans(test_data)
         kmeans_labels = test_data["kmeans_labels"].flatten()
         kmeans_enabled = True
-        num_plots += 1
-
-    if test_method in ['gmm', 'all']:
-        test_gmm(test_data)
-        gmm_labels = test_data["gmm_labels"].flatten()
-        gmm_enabled = True
         num_plots += 1
 
     if visualize:
@@ -67,13 +54,6 @@ def run_test(data_path, test_method, visualize=False):
             if gmm_enabled:
                 ax = fig.add_subplot(num_plots, 1, 3)
 
-        if gmm_enabled:
-            for cluster_i in range(K):
-                ax.set_title("GMM")
-                ax.scatter(test_data['data'][gmm_labels == cluster_i, 0],
-                        test_data['data'][gmm_labels == cluster_i, 1])
-                ax.scatter(test_data["gmm_centers"][:, 0], test_data["gmm_centers"][:, 1], c="black")
-
         plt.show()
 
 
@@ -82,15 +62,6 @@ def test_kmeans(test_data):
     labels = model.train(test_data["data"])
     assert np.allclose(model.centers, test_data["kmeans_centers"])
     assert np.allclose(labels, test_data["kmeans_labels"])
-
-def test_gmm(test_data):
-    model = GMM(test_data["init_centers"])
-    labels = model.train(test_data["data"])
-
-    assert np.allclose(model.centers, test_data["gmm_centers"])
-    assert np.allclose(model.covariances, test_data["gmm_covariances"])
-    assert np.allclose(model.mixture_proportions, test_data["gmm_mixture_proportions"])
-    assert np.allclose(labels, test_data["gmm_labels"])
 
 
 if __name__ == "__main__":

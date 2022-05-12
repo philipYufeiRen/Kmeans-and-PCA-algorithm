@@ -1,7 +1,4 @@
-"""
-CSCC11 - Introduction to Machine Learning, Winter 2022, Assignment 4
-B. Chan, S. Wei, D. Fleet
-"""
+
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -101,15 +98,12 @@ class PCA:
         Output:
         - eigenvalues (ndarray (shape: (D,))): D-column vector corresponding to the eigenvalues captured by each subspace dimension.
         """
-        
-        # ====================================================
-        # TODO: Implement your solution within the box
+    
         eigenvalues = self.w
         x = np.arange(self.D)
         plt.scatter(x, eigenvalues)
         plt.xlabel("index")
         plt.ylabel("eigenvalue")
-        # ====================================================
         plt.title("Eigenvalues")
 
         if savefig:

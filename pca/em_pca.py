@@ -1,7 +1,4 @@
-"""
-CSCC11 - Introduction to Machine Learning, Winter 2022, Assignment 4
-B. Chan, S. Wei, D. Fleet
-"""
+
 
 import numpy as np
 
@@ -45,14 +42,10 @@ class EMPCA():
         """
         K, N = A.shape[1], Y.shape[1]
 
-        # ====================================================
-        # TODO: Implement your solution within the box
         p1 = A.T @ A
         p2 = np.linalg.inv(p1)
         p3 = A.T @ Y
         X = p2 @ p3
-        
-        # ====================================================
 
         assert X.shape == (K, N), f"X shape mismatch. Expected: {(K, N)}. Got: {X.shape}"
         return X

@@ -1,7 +1,4 @@
-"""
-CSCC11 - Introduction to Machine Learning, Winter 2022, Assignment 4
-B. Chan, S. Wei, D. Fleet
-"""
+
 
 import numpy as np
 
@@ -59,8 +56,6 @@ class KMeans:
         for _ in range(max_iterations):
             old_labels = labels
 
-            # ====================================================
-            # TODO: Implement your solution within the box
 
             for i in range(N):
                 for j in range(K):
@@ -72,8 +67,6 @@ class KMeans:
                 self.centers[j,:] = np.mean(train_X[labels==j], axis =0)
 
             labels = labels.T.reshape(N,1)
-
-            # ====================================================
 
             # Check convergence
             if np.allclose(old_labels, labels):

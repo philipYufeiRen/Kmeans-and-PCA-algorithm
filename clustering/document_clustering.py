@@ -1,12 +1,4 @@
-"""
-CSCC11 - Introduction to Machine Learning, Winter 2022, Assignment 4
-B. Chan, S. Wei, D. Fleet
 
-This file clusters a document data set, which consists few thousand BBC articles
-represented by word-frequency vectors, using K-Means algorithm.
-
-NOTE: You can try using GMM but you will realized it is not a good idea with the dimensionality.
-"""
 
 import _pickle as pickle
 import numpy as np
